@@ -20,11 +20,15 @@ checkButton.addEventListener("click", function validateBillAndCashAmount() {
 });
 
 function calculateChange(amountToBeReturned) {
+    // go over all the avaialble notes 
     for (let i = 0; i < availableNotes.length; i++) {
+        // no of notes need for denomination
         const numberOfNotes = Math.trunc(
             amountToBeReturned / availableNotes[i]
         );
+        // amount left after calculating the number of notes needed
         amountToBeReturned = amountToBeReturned % availableNotes[i];
+        //updating no of notes in the table for the current amount
         noOfNotes[i].innerText = numberOfNotes;
     }
 };
